@@ -1,0 +1,8 @@
+body { background-color: #1b242c; color: #e4e6e6; }
+.connected { color: #1b8e4a; }
+.desconnected { color: #c1c1c1; }
+.content-mapa { background-color: #2f3a44; }
+.fa-ul > li{ margin-bottom: 10px; }
+.fa-ul > li > md-divider{ margin-top: 10px; color: #2f3a44; }
+/*-- List Result Maps --*/
+.pac-container{ z-index: 1051; }

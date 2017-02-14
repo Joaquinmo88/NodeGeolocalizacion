@@ -1,0 +1,11 @@
+body { background-color: #1b242c; color: #e4e6e6; }
+.content-mapa { background-color: #2f3a44; }
+.content-logout {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  background-color: #192027;
+}
+.content-logout > a { text-decoration: none; color: #ffffff; margin-left: 10px;}

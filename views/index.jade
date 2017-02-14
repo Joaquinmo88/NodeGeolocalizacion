@@ -1,0 +1,43 @@
+extends layouts/indexLyt
+
+block content
+  div.container.full-height
+    div.row.full-height
+      div.container-fluid.bg-cf-header
+        h1.page-header.text-center Sistema ...
+      div.col-xs-12.col-xs-12.col-md-6.col-lg-6.border-right
+        div.block-content
+          form(method="POST" action="/registrar-empleado")
+            div.form-group
+              label(for="nombre") Nombre
+              input(type="text", id="nombre" name="nombre" placeholder="Nombre" class="form-control")
+            div.form-group
+              label(for="email") Email
+              input(type="email" id="email" name="email" placeholder="Email" class="form-control")
+            div.form-group
+              label(for="password") Password
+              input(type="password" placeholder="Password" name="password" class="form-control")
+            div.form-group
+              label(for="password") Confirma Password
+              input(type="password" placeholder="Confirma Password" name="password_confirmation" class="form-control")
+            button(type="submit" class="btn btn-primary pull-right") Registrar
+        
+      div.col-xs-12.col-xs-12.col-md-6.col-lg-6
+        div.block-content
+          form(method="POST" action="/login/")
+            div.form-group
+              label(for="nombre") Nombre
+              input(type="text" id="email" name="email" placeholder="Email" class="form-control")
+            div.form-group
+              label(for="nombre") Password
+              input(type="password" placeholder="Password" name="password" class="form-control")
+            button(type="submit" class="btn btn-info pull-right") Entrar
+        if(error)
+          div(class="alert alert-danger text-center" role="alert") 
+            button(type="button" class="close" data-dismiss="alert" aria-label="Close")
+              span(aria-hidden="true") &times;
+            strong #{error}
+  
+  script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js")      
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+  script(src='/javascripts/login.js')

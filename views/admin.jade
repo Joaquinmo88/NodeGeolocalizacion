@@ -1,0 +1,41 @@
+extends layouts/adminLayout
+
+block content
+  
+  div(layout="column" class="full-height")
+    div(layout="row" class="full-height")
+      div(flex="20" class="full-height" layout-padding)
+        ul.fa-ul
+          li(ng-repeat="empleado in empleados" id="{{empleado._id}}") 
+            i(class="fa-li fa fa-user-circle" ng-class="{'connected': empleado.activo == 1, 'desconnected':empleado.activo == 0}" aria-hidden="true")
+            p {{ empleado.nombre }} 
+            p
+              i(ng-click="showModal(empleado._id)") 
+                span(id="destino{{empleado._id}}") Destino
+            md-divider(ng-if="!$last")
+            
+      div(flex="80" class="full-height content-mapa")
+        div(id="map" class="full-height")
+        
+  
+  
+  div(class="modal fade" id="setModalCoordenadas" role="dialog")
+    div(class="modal-dialog modal-sm")
+      div(class="modal-content")
+        div(class="modal-header")
+          button(type="button" class="close" data-dismiss="modal") &times
+          h4(class="modal-title") Registrar Destino
+        div(class="modal-body")
+          form(class="")
+            input(type="text" name="pac-input" ng-model="pacinput" id="pac-input" class="controls form-control")
+        div(class="modal-footer")
+          button(type="button" class="btn btn-success" id="btnSetDestino" set-destino) Asignar Destino
+          button(type="button" class="btn btn-danger" data-dismiss="modal") Cancelar
+        
+      
+      
+  script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js")
+  script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places&key=AIzaSyCrP4sygbkjRhJOzErUsyB8rBSIwEqMhA4")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+  script(src='/socket.io/socket.io.js')
+  script(src='/javascripts/admin.js')
