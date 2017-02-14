@@ -4,7 +4,7 @@ block content
   div(layout="column" class="full-height")
     div(layout="row" class="full-height")
       div(flex="20" class="full-height" layout-padding)
-        h3(ng-init="getId('#{data._id}', '#{data.nombre}')") #{data.nombre}
+        h3(ng-init="getId('#{data._id}', '#{data.nombre}')") Mi nobmbre es: #{data.nombre}
         div(class="content-logout")
           i(class="fa fa-sign-out" aria-hidden="true")
           a(href="/salir/" ng-click="logout('#{data._id}')") Cerrar session
