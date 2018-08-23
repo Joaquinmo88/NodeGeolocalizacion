@@ -73,13 +73,14 @@ app.controller('CtrlGeolocalizacion',['$scope', function(scope){
   }
 
   scope.getMyLocation = function(position){
-    var myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+   // var myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
     var gMarker = new google.maps.Marker( {
       position: myLocation,
       map: gMap,
       title: 'location'
     } );
-    geocoder.geocode({ 'latLng': myLocation }, function(result, status){
+    geocoder.geocode({ 'latLng': latlng }, function(result, status){
       var msgHubicacion = (status == 'OK')? result[0].formatted_address : 'Error: No se encontro la hubicación';
       scope.hubicacion = msgHubicacion;
       scope.$apply();
